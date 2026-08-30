@@ -48,7 +48,7 @@ server {
         proxy_set_header Accept-Encoding "";
 
         # 在 Memos HTML 的 </head> 前自动加入你的 CSS/JS
-        sub_filter_once false;
+        sub_filter_once off;
         sub_filter_types text/html;
 
         sub_filter '</head>' '<link rel="stylesheet" href="/memos.css"><link rel="manifest" href="/manifest.json"><script src="/memos.js" defer></script></head>';
