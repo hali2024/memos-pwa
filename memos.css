@@ -1,0 +1,510 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap');
+
+* { font-family:olor: #f5ede0 !important;
+background-image: radial-gradient(#d4a574 0.8px, transparent 0.8px) !important;
+background-size: 18px 18 'Noto Serif SC', 'Lora', Georgia, serif !important; }
+
+html, body {
+background-cpx !important;
+}
+
+body, p, span, div, h1, h2, h3, h4, li { color: #3d1f0f !important; }
+a { color: #a0522d !important; }
+
+[class*="bg-white"], [class*="bg-zinc"], [class*="bg-stone"],
+[class*="bg-neutral"], [class*="bg-gray"], [class*="bg-slate"],
+[class*="bg-amber"] {
+background-color: #fdf6ec !important;
+border-color: #d4a574 !important;
+}
+
+nav, aside, header,
+div[class*="sticky"], div[class*="top-0"],
+[class*="header"], [class*="navbar"], [class*="topbar"] {
+background-color: #eddfc8 !important;
+border-color: #c49060 !important;
+}
+
+header , [class="header"] * {
+background-color: transparent !important;
+border: none !important;
+box-shadow: none !important;
+}
+
+textarea, input {
+background-color: #fdf6ec !important;
+border-color: #d4a574 !important;
+border-radius: 10px !important;
+}
+
+textarea:focus, input:focus {
+border-color: #a0522d !important;
+box-shadow: 0 0 0 3px rgba(160, 82, 45, 0.15) !important;
+outline: none !important;
+}
+
+button[class*="primary"], button[class*="blue"] {
+background-color: #c49060 !important;
+border-color: #a0522d !important;
+color: #fff !important;
+border-radius: 8px !important;
+}
+
+button[class*="primary"]:hover { background-color: #a0522d !important; }
+
+/*
+   已移除原来的全局普通按钮规则：
+
+   button:not([class*="primary"]):not([class*="blue"]) {
+       ...
+   }
+
+   原规则会接管 Memos 几乎所有普通按钮。
+   现在让 Memos 自己控制普通按钮的背景、边框和交互。
+*/
+
+[class*="tag"] {
+background-color: #eddfc8 !important;
+color: #7a3b1e !important;
+border-radius: 6px !important;
+}
+
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #f5ede0; }
+::-webkit-scrollbar-thumb { background: #d4a574; border-radius: 10px; }
+
+body, p, div { line-height: 1.48 !important; letter-spacing: 0.01em !important; }
+h1, h2, h3 { letter-spacing: 0.03em !important; }
+
+textarea, input { transition: border-color 0.2s, box-shadow 0.2s !important; }
+
+img { border-radius: 6px !important; border: 1px solid #e0c9a6 !important; }
+
+/*
+   已移除原来的：
+
+   [class*="rounded"],
+   [class*="card"],
+   [class*="memo"] {
+       border: none !important;
+       box-shadow: none !important;
+   }
+
+   原规则会误伤 Memos 大量组件。
+*/
+
+::selection { background: #d4a574 !important; color: #fff !important; }
+
+[class*="time"], [class*="date"], time {
+font-size: 0.55em !important;
+opacity: 0.5 !important;
+letter-spacing: 0.04em !important;
+}
+
+a {
+transition: color 0.25s ease !important;
+}
+
+a:hover {
+color: #e8c99a !important;
+}
+
+button {
+transition: transform 0.1s ease, opacity 0.1s ease !important;
+}
+
+button:active {
+transform: scale(0.93) !important;
+opacity: 0.85 !important;
+}
+
+blockquote {
+border-left: 3px solid #d4a574 !important;
+border-right: none !important;
+border-top: none !important;
+border-bottom: none !important;
+background-color: #fdf6ec !important;
+padding: 10px 16px !important;
+margin: 8px 0 !important;
+border-radius: 0 8px 8px 0 !important;
+font-style: normal !important;
+}
+
+blockquote p {
+color: #7a3b1e !important;
+margin: 0 !important;
+}
+
+.media-embed-wrapper {
+position: relative;
+width: 100%;
+margin-top: 10px;
+margin-bottom: 10px;
+border-radius: 8px;
+overflow: hidden;
+background-color: var(--color-bg);
+box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.media-embed-wrapper.video {
+padding-bottom: 56.25%;
+}
+
+.media-embed-wrapper iframe {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+border: none;
+}
+
+.media-embed-wrapper.spotify {
+height: 152px;
+}
+
+.link-preview-card {
+display: flex;
+text-decoration: none !important;
+border: 1px solid var(--color-border);
+border-radius: 8px;
+overflow: hidden;
+margin: 10px 0;
+background-color: var(--color-bg);
+transition: background-color 0.2s;
+color: inherit;
+max-height: 120px;
+}
+
+.link-preview-card:hover {
+background-color: var(--color-hover);
+}
+
+.link-preview-info {
+flex: 1;
+padding: 12px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+min-width: 0;
+}
+
+.link-preview-title {
+font-weight: 600;
+font-size: 14px;
+margin-bottom: 6px;
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
+}
+
+.link-preview-desc {
+font-size: 12px;
+color: var(--color-text-secondary);
+display: -webkit-box;
+-webkit-line-clamp: 2;
+-webkit-box-orient: vertical;
+overflow: hidden;
+margin-bottom: 6px;
+}
+
+.link-preview-domain {
+font-size: 11px;
+color: var(--color-text-tertiary);
+display: flex;
+align-items: center;
+}
+
+.link-preview-domain img {
+width: 12px;
+height: 12px;
+margin-right: 4px;
+border-radius: 2px;
+}
+
+.link-preview-image {
+width: 120px;
+height: 100%;
+object-fit: cover;
+border-left: 1px solid var(--color-border);
+}
+
+@media (max-width: 600px) {
+.link-preview-image {
+width: 80px;
+}
+}
+
+.bili-facade {
+position: relative;
+width: 100%;
+padding-bottom: 56.25%;
+background-color: var(--color-bg-hover);
+border-radius: 8px;
+border: 1px solid var(--color-border);
+overflow: hidden;
+cursor: pointer;
+margin: 12px 0;
+transition: transform 0.2s;
+}
+
+.bili-facade:hover { transform: scale(1.01); }
+
+.bili-facade img.bili-cover {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+object-fit: cover;
+opacity: 0.9;
+transition: opacity 0.3s;
+}
+
+.bili-facade:hover img.bili-cover { opacity: 1; }
+
+.bili-play-btn {
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+width: 56px;
+height: 56px;
+background: rgba(0, 161, 214, 0.9);
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+transition: background 0.3s;
+}
+
+.bili-facade:hover .bili-play-btn {
+background: rgba(251, 114, 153, 0.9);
+}
+
+.bili-play-btn::after {
+content: '';
+border-style: solid;
+border-width: 12px 0 12px 18px;
+border-color: transparent transparent transparent #fff;
+margin-left: 6px;
+}
+
+.yt-facade {
+position: relative;
+width: 100%;
+padding-bottom: 56.25%;
+background-color: #000;
+border-radius: 8px;
+overflow: hidden;
+cursor: pointer;
+margin: 12px 0;
+border: 1px solid var(--color-border);
+}
+
+.yt-facade img {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+object-fit: cover;
+transition: opacity 0.2s;
+}
+
+.yt-facade:hover img {
+opacity: 0.85;
+}
+
+.yt-play-btn {
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+width: 68px;
+height: 48px;
+background-color: rgba(33, 33, 33, 0.8);
+border-radius: 12px;
+display: flex;
+align-items: center;
+justify-content: center;
+transition: background-color 0.2s;
+box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.yt-facade:hover .yt-play-btn {
+background-color: #ff0000;
+}
+
+.yt-play-btn::after {
+content: '';
+border-style: solid;
+border-width: 10px 0 10px 18px;
+border-color: transparent transparent transparent #fff;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+
+.scratch-container {
+position: relative;
+display: inline-block;
+max-width: 100%;
+border-radius: inherit;
+overflow: hidden;
+box-shadow: 0 4px 12px rgba(138, 109, 85, 0.15);
+}
+
+.scratch-canvas {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+cursor: crosshair;
+z-index: 10;
+touch-action: none;
+transition: opacity 0.6s ease-out;
+}
+
+.scratch-target-img {
+transition: opacity 0.2s ease;
+}
+
+#resonance-glow {
+position: fixed;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+pointer-events: none;
+z-index: 9999;
+box-shadow: inset 0 0 50px 15px rgba(255, 215, 0, 0);
+transition: box-shadow 4s ease-in-out;
+}
+
+body.resonance-active #resonance-glow {
+animation: breatheGlow 4s infinite alternate ease-in-out;
+}
+
+@keyframes breatheGlow {
+0% { box-shadow: inset 0 0 30px 5px rgba(255, 204, 102, 0.2); }
+100% { box-shadow: inset 0 0 70px 20px rgba(255, 153, 51, 0.5); }
+}
+
+#custom-cat-bubble {
+color: #c49a76 !important;
+font-family: 'ZCOOL KuaiLe', 'Nunito', 'Yuanti SC', '幼圆', sans-serif !important;
+font-weight: normal !important;
+font-size: 14px !important;
+letter-spacing: 1px !important;
+line-height: 1.5 !important;
+}
+
+#pet-addon-count {
+color: #c49a76 !important;
+font-family: 'Nunito', 'Yuanti SC', '幼圆', sans-serif !important;
+font-weight: 700 !important;
+font-size: 13px !important;
+}
+
+#pet-food-addon {
+background: transparent !important;
+box-shadow: none !important;
+backdrop-filter: none !important;
+}
+
+#pet-food-addon:hover {
+background: transparent !important;
+transform: scale(1.1) !important;
+}
+
+[class*="memo"] p,
+[class*="content"] p,
+[class*="memo"] span,
+[class*="content"] span {
+font-size: 14px !important;
+}
+
+input[type="checkbox"] {
+appearance: none !important;
+-webkit-appearance: none !important;
+width: 18px !important;
+height: 18px !important;
+border: 2px solid #d4a574 !important;
+border-radius: 4px !important;
+background-color: #fdf6ec !important;
+cursor: pointer !important;
+position: relative !important;
+transition: all 0.2s ease !important;
+margin-top: 2px !important;
+}
+
+input[type="checkbox"]:checked {
+background-color: #a0522d !important;
+border-color: #a0522d !important;
+}
+
+input[type="checkbox"]:checked::after {
+content: '' !important;
+position: absolute !important;
+left: 5px !important;
+top: 1px !important;
+width: 5px !important;
+height: 10px !important;
+border: solid #fdf6ec !important;
+border-width: 0 2px 2px 0 !important;
+transform: rotate(45deg) !important;
+}
+
+hr {
+border: none !important;
+height: 1px !important;
+background: linear-gradient(to right, transparent, #c49060, transparent) !important;
+margin: 20px 0 !important;
+opacity: 0.7 !important;
+}
+
+
+/* =========================================================
+   Memos 安全可见性修复
+   仅恢复按钮、图标的可见性
+   不强制修改 pointer-events
+   不强制修改按钮内部所有元素
+   ========================================================= */
+
+/*
+   只确保真正的 button 本身保持可见。
+   不再对 [role="button"] 做全局处理。
+*/
+button {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/*
+   Memos 按钮里的 SVG 保持可见。
+   不修改 pointer-events。
+*/
+button svg {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/*
+   顶栏 / 侧栏按钮明确使用主题文字颜色。
+   只影响实际 button，不碰整个容器。
+*/
+header button,
+nav button,
+aside button,
+[class*="header"] button,
+[class*="navbar"] button,
+[class*="sidebar"] button {
+  color: #7a3b1e !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+
+
