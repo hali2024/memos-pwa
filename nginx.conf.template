@@ -5,18 +5,52 @@ server {
     server_name _;
 
     root /usr/share/nginx/html;
-    index index.html;
 
-    location / {
-        try_files $uri $uri/ /index.html;
-    }
-
-    location /manifest.json {
+    # 你的 CSS
+    location = /memos.css {
         add_header Cache-Control "no-cache";
+        try_files /memos.css =404;
     }
 
-    location /service-worker.js {
+    # 你的 JS
+    location = /memos.js {
+        add_header Cache-Control "no-cache";
+        try_files /memos.js =404;
+    }
+
+    # PWA 文件
+    location = /manifest.json {
+        add_header Cache-Control "no-cache";
+        try_files /manifest.json =404;
+    }
+
+    location = /service-worker.js {
         add_header Cache-Control "no-cache";
         add_header Service-Worker-Allowed "/";
+        try_files /service-worker.js =404;
+    }
+
+    # 所有其他请求都转发给真正的 Memos
+    location / {
+        proxy_pass http://memos.railway.internal:8081;
+
+        proxy_http_version 1.1;
+
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+
+        # 禁止上游压缩，方便 Nginx 注入 CSS/JS
+        proxy_set_header Accept-Encoding "";
+
+        # 在 Memos HTML 的 </head> 前自动加入你的 CSS/JS
+        sub_filter_once false;
+        sub_filter_types text/html;
+
+        sub_filter '</head>' '<link rel="stylesheet" href="/memos.css"><link rel="manifest" href="/manifest.json"><script src="/memos.js" defer></script></head>';
     }
 }
